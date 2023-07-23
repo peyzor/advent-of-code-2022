@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func day6part1() {
+func day6part2() {
 	relativePath := "Day6/input.txt"
 
 	currentDir, err := os.Getwd()
@@ -50,7 +50,7 @@ func day6part1() {
 		}
 		tracker[c] = true
 		track = append(track, c)
-		if len(tracker) == 4 {
+		if len(tracker) == 14 {
 			fmt.Printf("idx: %d\n", i)
 			break
 		}
@@ -59,4 +59,14 @@ func day6part1() {
 	if err := scanner.Err(); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func IndexOf(slice []rune, target rune) int {
+	for i, val := range slice {
+		if val == target {
+			return i
+		}
+	}
+
+	return -1
 }
