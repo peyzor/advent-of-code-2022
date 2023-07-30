@@ -66,7 +66,6 @@ func day9part1() {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("visited: %+v\n", visitedByTail)
 	fmt.Println(len(visitedByTail))
 }
 
