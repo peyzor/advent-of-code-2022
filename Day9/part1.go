@@ -37,6 +37,8 @@ func day9part1() {
 	head := point{0, 0}
 	tail := point{0, 0}
 	visitedByTail := make(map[point]bool)
+	visitedByTail[tail] = true
+
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
@@ -84,7 +86,7 @@ func adjustTail(head, tail point) point {
 		newTail.y--
 	}
 	switch (point{head.x - tail.x, head.y - tail.y}) {
-	case point{-1, -2}, point{-2, -1}, point{-2, -0}, point{-2, 1}, point{-1, 2}:
+	case point{-1, -2}, point{-2, -1}, point{-2, 0}, point{-2, 1}, point{-1, 2}:
 		newTail.x--
 	}
 
