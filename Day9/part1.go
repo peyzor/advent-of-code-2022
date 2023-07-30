@@ -15,7 +15,7 @@ type point struct {
 }
 
 func day9part1() {
-	relativePath := "Day9/small_input.txt"
+	relativePath := "Day9/input.txt"
 
 	currentDir, err := os.Getwd()
 	if err != nil {
