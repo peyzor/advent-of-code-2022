@@ -91,7 +91,7 @@ func day11part1() {
 		log.Fatal(err)
 	}
 
-	playMonkeys(monkeys)
+	playMonkeys(monkeys, 20, 3)
 
 	var inspectionCounts []int
 	for _, m := range monkeys {
@@ -206,20 +206,21 @@ func findTwoLargest(numbers []int) (int, int) {
 	return largest, secondLargest
 }
 
-func playMonkeys(monkeys []*monkey) {
+func playMonkeys(monkeys []*monkey, rounds, divide int) {
 	round := 1
-	for round <= 20 {
+	for round <= rounds {
 		for midx, m := range monkeys {
 			var indicesToDelete []int
+
 			for idx, i := range m.items {
 				var newLevel int
 				switch m.operation.operator {
 				case "*":
-					newLevel = (i.level * m.operation.operand) / 3
+					newLevel = (i.level * m.operation.operand) / divide
 				case "+":
-					newLevel = (i.level + m.operation.operand) / 3
+					newLevel = (i.level + m.operation.operand) / divide
 				case "**":
-					newLevel = int(math.Pow(float64(i.level), float64(m.operation.operand))) / 3
+					newLevel = int(math.Pow(float64(i.level), float64(m.operation.operand))) / divide
 				}
 
 				if newLevel%m.test.number == 0 {
@@ -236,7 +237,7 @@ func playMonkeys(monkeys []*monkey) {
 				m.inspectionCount++
 			}
 
-			monkeys[midx].items = deleteMultipleItems(monkeys[midx].items, indicesToDelete)
+			monkeys[midx].items = []item{}
 		}
 
 		round++
