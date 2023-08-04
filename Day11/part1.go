@@ -207,6 +207,11 @@ func findTwoLargest(numbers []int) (int, int) {
 }
 
 func playMonkeys(monkeys []*monkey, rounds, divide int) {
+	bigLimit := 1
+	for _, m := range monkeys {
+		bigLimit *= m.test.number
+	}
+
 	round := 1
 	for round <= rounds {
 		for midx, m := range monkeys {
@@ -223,6 +228,7 @@ func playMonkeys(monkeys []*monkey, rounds, divide int) {
 					newLevel = int(math.Pow(float64(i.level), float64(m.operation.operand))) / divide
 				}
 
+				newLevel = newLevel % bigLimit
 				if newLevel%m.test.number == 0 {
 					items := monkeys[m.test.trueTarget].items
 					items = append(items, item{level: newLevel})
