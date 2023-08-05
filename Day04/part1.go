@@ -16,7 +16,7 @@ type Range struct {
 }
 
 func day4part1() {
-	relativePath := "Day4/input.txt"
+	relativePath := "Day04/input.txt"
 
 	currentDir, err := os.Getwd()
 	if err != nil {

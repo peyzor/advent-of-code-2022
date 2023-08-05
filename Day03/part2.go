@@ -22,7 +22,7 @@ func day3part2() {
 		priorities[char] = i
 	}
 
-	relativePath := "Day3/input.txt"
+	relativePath := "Day03/input.txt"
 
 	currentDir, err := os.Getwd()
 	if err != nil {

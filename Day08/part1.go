@@ -11,7 +11,7 @@ import (
 )
 
 func day8part1() {
-	relativePath := "Day8/input.txt"
+	relativePath := "Day08/input.txt"
 
 	currentDir, err := os.Getwd()
 	if err != nil {

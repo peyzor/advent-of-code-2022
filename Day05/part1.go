@@ -44,7 +44,7 @@ func (s *Stack) addToBottom(item rune) {
 }
 
 func day5part1() {
-	relativePath := "Day5/input.txt"
+	relativePath := "Day05/input.txt"
 
 	currentDir, err := os.Getwd()
 	if err != nil {

@@ -15,7 +15,7 @@ type choice struct {
 }
 
 func day2Part2() {
-	relativePath := "Day2/input.txt"
+	relativePath := "Day02/input.txt"
 
 	currentDir, err := os.Getwd()
 	if err != nil {

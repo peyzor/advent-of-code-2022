@@ -19,7 +19,7 @@ type Node struct {
 }
 
 func day7part1() {
-	relativePath := "Day7/input.txt"
+	relativePath := "Day07/input.txt"
 
 	currentDir, err := os.Getwd()
 	if err != nil {
